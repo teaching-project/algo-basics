@@ -2,7 +2,11 @@
  * Write a function that returns the index of the first occurence of an element in the provided array
  */
 export function find(array, element) {
-    
+    for(let i = 0; i < array.length; ++i) {
+        if(array[i] === element) {
+            return i
+        }
+    }
 }
 
 /**
@@ -12,7 +16,11 @@ export function find(array, element) {
  * ["w", "o", "r", "d"].join("") to join the elements of an array
  */
 export function reverseString(word) {
-    
+    let wordArray = word.split("")
+    let response = []
+    for(let i = 0; i < wordArray.length; ++i) {
+        response[i] = 
+    }
 }
 
 /**
