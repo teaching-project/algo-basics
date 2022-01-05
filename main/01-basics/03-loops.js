@@ -19,8 +19,9 @@ export function reverseString(word) {
     let wordArray = word.split("")
     let response = []
     for(let i = 0; i < wordArray.length; ++i) {
-        response[i] = 
+        response[i] = wordArray[wordArray.length - 1 - i]
     }
+    return response.join("")
 }
 
 /**
