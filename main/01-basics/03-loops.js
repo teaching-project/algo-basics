@@ -2,7 +2,7 @@
  * Write a function that returns the index of the first occurence of an element in the provided array
  */
 export function find(array, element) {
-    for(let i = 0; i < array.length; ++i) {
+    for (let i = 0; i < array.length; ++i) {
         if(array[i] === element) {
             return i
         }
@@ -18,7 +18,7 @@ export function find(array, element) {
 export function reverseString(word) {
     let wordArray = word.split("")
     let response = []
-    for(let i = 0; i < wordArray.length; ++i) {
+    for (let i = 0; i < wordArray.length; ++i) {
         response[i] = wordArray[wordArray.length - 1 - i]
     }
     return response.join("")
@@ -28,7 +28,13 @@ export function reverseString(word) {
  * Write a function to check which number is nearest to 100 among the array of numbers.
  */
  export function closestTo100AmongArray(numbers) {
-     
+    let closest = numbers[0]
+    for (let i = 1; i < numbers.length; ++i) {
+        if (Math.abs(numbers[i] - 100) < Math.abs(closest - 100)) {
+            closest = numbers[i]
+        }
+    }
+    return closest
 }
 
 /**
@@ -37,7 +43,13 @@ export function reverseString(word) {
  * [dayCount], starting from the given [initialInfectedCount] on the 1st day.
  */
 export function pandemicForecast(initialInfectedCount, dayCount) {
-    
+    let infectedCount = initialInfectedCount
+    let currentDay = 0
+    while (currentDay < dayCount) {
+        infectedCount = infectedCount * 2
+        ++currentDay
+    }
+    return infectedCount
 }
 
 /**
@@ -48,14 +60,33 @@ export function pandemicForecast(initialInfectedCount, dayCount) {
  * with "buzz" and if the number is divisible by both 3 and 7, it is replaced by "fizzbuzz"
  */
 export function fizzBuzz(numbers) {
-
+    let result = []
+    for (let i = 0; i < numbers.length; ++i) {
+        let element = numbers[i]
+        if (element % 3 === 0 && element % 5 === 0) {
+            result[i] = "fizzbuzz"
+        } else if (element % 3 === 0) {
+            result[i] = "fizz"
+        } else if (element % 5 === 0) {
+            result[i] = "buzz"
+        } else {
+            result[i] = element
+        }
+    }
+    return result.join("")
 }
 
 /**
  * Write a function that takes an array of numbers as an argument and returns an array of the same size with its items sorted.
  */
  export function sort(numbers) {
-
+    let sorted = []
+    let smallest = numbers[0]
+    for (let i = 0; i < numbers.length; ++i) {
+        if (smallest > numbers[i]) {
+            smallest = numbers[i]
+        }
+    }
 }
 
 /**
