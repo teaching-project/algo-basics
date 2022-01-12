@@ -80,13 +80,16 @@ export function fizzBuzz(numbers) {
  * Write a function that takes an array of numbers as an argument and returns an array of the same size with its items sorted.
  */
  export function sort(numbers) {
-    let sorted = []
-    let smallest = numbers[0]
-    for (let i = 0; i < numbers.length; ++i) {
-        if (smallest > numbers[i]) {
-            smallest = numbers[i]
+    for (let i = 0; i < numbers.length; i++) {
+        for (let j = 0; j < numbers.length - i - 1; j++) {
+            if (numbers[j + 1] < numbers[j]) {
+                let swap = numbers[j + 1]
+                numbers[j + 1] = numbers[j]
+                numbers[j] = swap
+            }
         }
     }
+    return numbers
 }
 
 /**
@@ -96,7 +99,12 @@ export function fizzBuzz(numbers) {
  * 4! = 4 x 3 x 2 x 1
  */
 export function factorial(n) {
-    
+    let total = 1
+    while(n > 0) {
+        total = total * n
+        --n
+    }
+    return total
 }
 
 /** 
@@ -115,5 +123,19 @@ export function factorial(n) {
  * 
  */
  export function fibonacci(n) {
-     
+    if (n === 0) {
+        return 0
+    }
+    if (n === 1) {
+        return 1
+    }
+    let grandparent = 0
+    let parent = 1
+    let me = 0
+    for (let i = 2; i <= n; ++i) {
+        me = parent + grandparent
+        grandparent = parent
+        parent = me
+    }
+    return me
 }
