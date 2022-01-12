@@ -13,7 +13,10 @@
  *  - 8 % 3 = 2
  */
 export function gcd(a, b) {
-
+    if (b === 0) {
+        return a
+    }
+    return gcd(b, a % b)
 }
 
 /**
@@ -26,5 +29,5 @@ export function gcd(a, b) {
  *  - LCM of 2 and 3 is 6
  */
 export function lcm(a, b) {
-
+    return a * b / gcd(a, b)
 }

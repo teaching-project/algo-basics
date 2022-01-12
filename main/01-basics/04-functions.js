@@ -41,5 +41,15 @@ export function fibonacci(n) {
  * index represent the index of the current iteration. Starts at 0.
  */
 export function bubbleSort(numbers, index) {
-
+    if (index === numbers.length) {
+        return numbers
+    }
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] > numbers[i + 1]) {
+            let swap = numbers[i]
+            numbers[i] = numbers[i + 1]
+            numbers[i + 1] = swap
+        }
+    }
+    return bubbleSort(numbers, index + 1)
 }
