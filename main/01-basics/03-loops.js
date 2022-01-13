@@ -63,11 +63,11 @@ export function fizzBuzz(numbers) {
     let result = []
     for (let i = 0; i < numbers.length; ++i) {
         let element = numbers[i]
-        if (element % 3 === 0 && element % 5 === 0) {
+        if (element % 3 === 0 && element % 7 === 0) {
             result[i] = "fizzbuzz"
         } else if (element % 3 === 0) {
             result[i] = "fizz"
-        } else if (element % 5 === 0) {
+        } else if (element % 7 === 0) {
             result[i] = "buzz"
         } else {
             result[i] = element
@@ -101,6 +101,7 @@ export function fizzBuzz(numbers) {
 export function factorial(n) {
     let total = 1
     while(n > 0) {
+        console.log("n vaut " + n + " | et total vaut " + total)
         total = total * n
         --n
     }
